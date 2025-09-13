@@ -1,15 +1,13 @@
-from agents import OpenAIChatCompletionsModel, RunConfig,AsyncOpenAI
-from dotenv import load_dotenv
+from agents import OpenAIChatCompletionsModel, RunConfig,AsyncOpenAI#
 import os
-  
-load_dotenv()
-_: bool = load_dotenv()
 
-gemini_api_key = os.environ["GEMINI_API_KEY"]
+gemini_api_key ="AIzaSyCAPDgBRSrSJuJdZbtgQGOK72-O8Nk2WQE"
 
+if not gemini_api_key:
+    raise ValueError("GEMINI_API_KEY environment variable not set")
 
 client= AsyncOpenAI(
-    api_key="AIzaSyA8-12akKkDprulXQ_ZRtE9KLqya4pwElE",
+    api_key=gemini_api_key,
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 
